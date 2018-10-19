@@ -1,7 +1,7 @@
 class TDDKata:
 
     def string_calc(self, input):
-        print input
+        return input
 
     def main(self):
         self.string_calc("1,2")
