@@ -1,6 +1,8 @@
 class TDDKata:
 
     def string_calc(self, input):
+        if len(input.split('-')) > 1:
+            raise Exception("negatives not allowed")
         total = 0
         if input == "":
             return 0
