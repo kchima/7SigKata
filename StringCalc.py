@@ -1,13 +1,25 @@
 class TDDKata:
 
     def string_calc(self, input):
-        if input == "":
-            return 0
         intArray = input.split(',')
         total = 0
-        for integer in intArray:
-            total += int(integer)
+
+        if self.array_has_ints(intArray):
+            for integer in intArray:
+                total += int(integer)
+        else:
+            intArray = input.split('\n')
+            if self.array_has_ints(intArray):
+                for integer in intArray:
+                    total += int(integer)
         return total
+
+    def array_has_ints(self, array):
+        try:
+            int(array[0])
+        except:
+            return False
+        return True
 
 
     def main(self):
