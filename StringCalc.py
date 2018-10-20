@@ -20,15 +20,12 @@ class TDDKata:
                 # get multiple delimeters, each of indeterminate length
                 delimeters = re.findall(r'\[(.*?)\]', delimString)
 
+                regex = ""
+                for delim in delimeters:
+                    regex += re.escape(delim) + '|'
+                regex = regex[:len(regex)-1]
                 # get array of integers
-                intArray = [""]
-                index = 0
-                for char in intString:
-                    if char in delimeters:
-                        intArray.append("")
-                        index += 1
-                    else:
-                        intArray[index] += char
+                intArray = re.split(regex, intString)
             else:
                 # if we only have one delim, we can just use the function
                 intArray = self.get_valid_array_for_delim(intString, delimString)
