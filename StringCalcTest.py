@@ -24,5 +24,8 @@ class TestStringMethods(unittest.TestCase):
     def test_big_multi(self):
         self.assertEqual(self.calculator.string_calc("10, 0, 0, 9, 1, 2, 8, 7, 6, 3, 4, 5"), 55)
 
+    def test_newline_delimeter(self):
+        self.assertEqual(self.calculator.string_calc("1\n2"), 3)
+
 if __name__ == '__main__':
     unittest.main()
