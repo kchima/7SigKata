@@ -49,5 +49,8 @@ class TestStringMethods(unittest.TestCase):
         # support multiple delimeters
         self.assertEqual(self.calculator.string_calc('//[*][%]\n1*2%3'), 6)
 
+    def test_multi_long_dynamic_delims(self):
+        # support multiple delimeters
+        self.assertEqual(self.calculator.string_calc('//[x*y][%yz]\n1x*y2%yz3x*y7'), 13)
 if __name__ == '__main__':
     unittest.main()
