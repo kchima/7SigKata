@@ -39,5 +39,8 @@ class TestStringMethods(unittest.TestCase):
     def test_complex_negative_number(self):
         self.assertRaisesRegexp(Exception, "negatives not allowed", self.calculator.string_calc, '-1,2')
 
+    def test_ignore_greater_than_1000(self):
+        self.assertEqual(self.calculator.string_calc("2,1001"), 2)
+
 if __name__ == '__main__':
     unittest.main()
