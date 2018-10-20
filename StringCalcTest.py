@@ -45,5 +45,9 @@ class TestStringMethods(unittest.TestCase):
     def test_long_dynamic_delim(self):
         self.assertEqual(self.calculator.string_calc('//;*xyz\n1;*xyz2;*xyz5'), 8)
 
+    def test_multi_dynamic_delims(self):
+        # support multiple delimeters
+        self.assertEqual(self.calculator.string_calc('//[*][%]\n1*2%3'), 6)
+
 if __name__ == '__main__':
     unittest.main()
