@@ -18,7 +18,8 @@ class TestStringMethods(unittest.TestCase):
     def test_twos(self):
         self.assertEqual(self.calculator.string_calc("2"), 2)
 
-
+    def test_multi(self):
+        self.assertEqual(self.calculator.string_calc("1,2"), 3)
 
 if __name__ == '__main__':
     unittest.main()
