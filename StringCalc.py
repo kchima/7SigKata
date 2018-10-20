@@ -24,7 +24,8 @@ class TDDKata:
                 for delim in delimeters:
                     regex += re.escape(delim) + '|'
                 regex = regex[:len(regex)-1]
-                # get array of integers
+
+                # divide the input by my regex to get an array of integers
                 intArray = re.split(regex, intString)
             else:
                 # if we only have one delim, we can just use the function
