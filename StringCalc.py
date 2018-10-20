@@ -7,8 +7,10 @@ class TDDKata:
         if input == "":
             return 0
         if len(input) > 5 and input[0] == '/' and input [1] == '/':
-            delim = input[2]
-            intArray = self.get_valid_array_for_delim(input[4:], delim)
+            endIndex = input.find('\n')
+            delim = input[2:endIndex]
+            print delim
+            intArray = self.get_valid_array_for_delim(input[endIndex:], delim)
             total = self.string_calc_for_delimeter(intArray, delim)
         else:
             intArray = self.get_valid_array_for_delim(input, ',')
