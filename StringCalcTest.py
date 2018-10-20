@@ -12,5 +12,8 @@ class TestStringMethods(unittest.TestCase):
     def test_empty_string(self):
         self.assertEqual(self.calculator.string_calc(""), 0)
 
+    def test_one(self):
+        self.assertEqual(self.calculator.string_calc("1"), 1)
+
 if __name__ == '__main__':
     unittest.main()
