@@ -1,6 +1,7 @@
 class TDDKata:
 
     def string_calc(self, input):
+        # take in a string representing a string of integers separated by some delimeter, return the sum of those ints
         if len(input.split('-')) > 1:
             raise Exception("negatives not allowed")
         total = 0
@@ -11,17 +12,18 @@ class TDDKata:
             delim = input[2:endIndex]
             print delim
             intArray = self.get_valid_array_for_delim(input[endIndex:], delim)
-            total = self.string_calc_for_delimeter(intArray, delim)
+            total = self.string_calc_for_delimeter(intArray)
         else:
             intArray = self.get_valid_array_for_delim(input, ',')
             if intArray:
-                total = self.string_calc_for_delimeter(intArray, ',')
+                total = self.string_calc_for_delimeter(intArray)
             else:
                 intArray = self.get_valid_array_for_delim(input, '\n')
-                total = self.string_calc_for_delimeter(intArray, '\n')
+                total = self.string_calc_for_delimeter(intArray)
         return total
 
-    def string_calc_for_delimeter(self, intArray, delim):
+    def string_calc_for_delimeter(self, intArray):
+        # takes in an array of ints and returns their sum (only including ints <= 1000)
         total = 0
         for integer in intArray:
             value = int(integer)
@@ -38,10 +40,6 @@ class TDDKata:
         except:
             return False
         return intArray
-
-
-    def main(self):
-        self.string_calc("1,2")
 
 if __name__ == '__main__':
     kata = TDDKata()
