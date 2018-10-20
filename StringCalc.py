@@ -1,17 +1,38 @@
+import re
+
 class TDDKata:
 
     def string_calc(self, input):
         # take in a string representing a string of integers separated by some delimeter, return the sum of those ints
+        if input == "":
+            return 0
         if len(input.split('-')) > 1:
             raise Exception("negatives not allowed")
         total = 0
-        if input == "":
-            return 0
-        if len(input) > 5 and input[0] == '/' and input [1] == '/':
+
+        if len(input) > 5 and input[0] == '/' and input[1] == '/':
+
             endIndex = input.find('\n')
-            delim = input[2:endIndex]
-            print delim
-            intArray = self.get_valid_array_for_delim(input[endIndex:], delim)
+            delimString = input[2:endIndex]
+            intString = input[endIndex+1:]
+            intArray = []
+            if input[2] == '[':
+                # get multiple delimeters, each of indeterminate length
+                delimeters = re.findall(r'\[(.*?)\]', delimString)
+
+                # get array of integers
+                intArray = [""]
+                index = 0
+                for char in intString:
+                    if char in delimeters:
+                        intArray.append("")
+                        index += 1
+                    else:
+                        intArray[index] += char
+            else:
+                # if we only have one delim, we can just use the function
+                intArray = self.get_valid_array_for_delim(intString, delimString)
+
             total = self.string_calc_for_delimeter(intArray)
         else:
             intArray = self.get_valid_array_for_delim(input, ',')
