@@ -15,6 +15,10 @@ class TestStringMethods(unittest.TestCase):
     def test_one(self):
         self.assertEqual(self.calculator.string_calc("1"), 1)
 
+    def test_twos(self):
+        self.assertEqual(self.calculator.string_calc("2"), 2)
+
+
 
 if __name__ == '__main__':
     unittest.main()
