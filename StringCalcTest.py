@@ -27,5 +27,8 @@ class TestStringMethods(unittest.TestCase):
     def test_newline_delimeter(self):
         self.assertEqual(self.calculator.string_calc("1\n2"), 3)
 
+    def test_dynamic_delimeter(self):
+        self.assertEqual(self.calculator.string_calc('//;\n1;2'), 3)
+
 if __name__ == '__main__':
     unittest.main()
