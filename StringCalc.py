@@ -8,8 +8,6 @@ class TDDKata:
             return 0
         if len(input) > 5 and input[0] == '/' and input [1] == '/':
             delim = input[2]
-            print input[4:]
-
             intArray = self.get_valid_array_for_delim(input[4:], delim)
             total = self.string_calc_for_delimeter(intArray, delim)
         else:
@@ -24,7 +22,10 @@ class TDDKata:
     def string_calc_for_delimeter(self, intArray, delim):
         total = 0
         for integer in intArray:
-            total += int(integer)
+            value = int(integer)
+            if value <= 1000:
+                # ignore integers > 1000
+                total += value
         return total
 
     def get_valid_array_for_delim(self, input, delim):
