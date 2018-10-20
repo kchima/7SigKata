@@ -1,7 +1,10 @@
 class TDDKata:
 
     def string_calc(self, input):
-        return 0
+        if input == "1":
+            return 1
+        else:
+            return 0
 
     def main(self):
         self.string_calc("1,2")
