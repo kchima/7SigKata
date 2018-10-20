@@ -3,9 +3,11 @@ class TDDKata:
     def string_calc(self, input):
         if input == "":
             return 0
-        if input == "1,2":
-            return 3
-        return int(input)
+        intArray = input.split(',')
+        total = 0
+        for integer in intArray:
+            total += int(integer)
+        return total
 
 
     def main(self):
